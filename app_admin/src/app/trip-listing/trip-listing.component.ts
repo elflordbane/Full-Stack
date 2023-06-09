@@ -17,10 +17,15 @@ export class TripListingComponent implements OnInit {
   message: string;
 
   constructor(
-    private tripDataService: TripDataService
+    private tripDataService: TripDataService,
+    private router: Router
   ) {}
 
-   private getTrips(): void {
+  private addTrip(): void {
+    this.router.navigate(["add-trip"]);
+  }
+
+  private getTrips(): void {
     console.log("Inside TripListingComponent#getTrips");
     this.message = "Searching for trips";
     this.tripDataService.getTrips().then((foundTrips) => {
