@@ -1,11 +1,11 @@
 const { model } = require("mongoose");
 const mongoose = require("mongoose");
-const Model = mongoose.model("trips");
+const Trip = mongoose.model("trips");
 
 
 
 const tripsList = async (req, res) => {
-  Model.find({}).exec((err, trips) => {
+  Trip.find({}).exec((err, trips) => {
     if (!trips) {
       return res.status(404).json({ message: "trips not found" });
     } else if (err) {
@@ -17,7 +17,7 @@ const tripsList = async (req, res) => {
 }
 
 const tripsFindCode = async (req, res) => {
-  Model.find({ code: req.params.tripCode }).exec((err, trip) => {
+  Trip.find({ code: req.params.tripCode }).exec((err, trip) => {
     if (!trip) {
       return res.status(404).json({ message: "trip not found" });
     } else if (err) {
@@ -29,7 +29,7 @@ const tripsFindCode = async (req, res) => {
 }
 
 const tripsAddTrip = async (req, res) => {
-  Model
+  Trip
      .create(
      {
        code: req.body.code,
@@ -39,7 +39,7 @@ const tripsAddTrip = async (req, res) => {
        resort: req.body.resort,
        perPerson: req.body.perPerson,
        image: req.body.image,
-       description: req.body.description,
+       description: req.body.description
      },
      (err, trip) => {
        if (err) {
@@ -58,7 +58,7 @@ const tripsAddTrip = async (req, res) => {
 
 const tripsUpdateTrip = async (req, res) => {
   console.log(req.body);
-  Model.findOneAndUpdate(
+  Trip.findOneAndUpdate(
     { code: req.params.tripCode },
     {
       code: req.body.code,
@@ -68,7 +68,7 @@ const tripsUpdateTrip = async (req, res) => {
       resort: req.body.resort,
       perPerson: req.body.perPerson,
       image: req.body.image,
-      description: req.body.description,
+      description: req.body.description
     },
     { new: true }
   )

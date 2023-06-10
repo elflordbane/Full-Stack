@@ -9,7 +9,7 @@ import { Trip } from "../models/trip";
 })
 export class TripCardComponent implements OnInit {
 
-  @Input("trip") trip: any;
+  @Input("trip") trip: Trip;
   constructor(private router: Router) {}
 
   ngOnInit() {}

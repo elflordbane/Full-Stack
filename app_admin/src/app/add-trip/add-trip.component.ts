@@ -9,7 +9,7 @@ import { TripDataService } from "../services/trip-data.service";
   styleUrls: ["./add-trip.component.css"],
 })
 export class AddTripComponent implements OnInit {
-  
+
   addForm: FormGroup;
   submitted = false;
 
@@ -22,14 +22,14 @@ export class AddTripComponent implements OnInit {
   ngOnInit() {
     this.addForm = this.formBuilder.group({
       _id: [],
-      code: ["", Validators.required],
-      name: ["", Validators.required],
-      length: ["", Validators.required],
-      start: ["", Validators.required],
-      resort: ["", Validators.required],
-      perPerson: ["", Validators.required],
-      image: ["", Validators.required],
-      description: ["", Validators.required],
+      code: ['', Validators.required],
+      name: ['', Validators.required],
+      length: ['', Validators.required],
+      start: ['', Validators.required],
+      resort: ['', Validators.required],
+      perPerson: ['', Validators.required],
+      image: ['', Validators.required],
+      description: ['', Validators.required],
     })
   }
 
