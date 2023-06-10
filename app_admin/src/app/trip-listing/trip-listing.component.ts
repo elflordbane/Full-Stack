@@ -22,13 +22,14 @@ export class TripListingComponent implements OnInit {
   ) {}
 
   private addTrip(): void {
+    console.log('Inside TripListingComponent#addTrip');
     this.router.navigate(["add-trip"]);
   }
 
   private getTrips(): void {
     console.log("Inside TripListingComponent#getTrips");
     this.message = "Searching for trips";
-    this.tripDataService.getTrips().then((foundTrips) => {
+    this.tripDataService.getTrips().then(foundTrips => {
       this.message = foundTrips.length > 0 ? "" : "No trips found";
       this.trips = foundTrips;
     });

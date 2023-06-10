@@ -9,6 +9,7 @@ import { TripDataService } from "../services/trip-data.service";
   styleUrls: ["./add-trip.component.css"],
 })
 export class AddTripComponent implements OnInit {
+  
   addForm: FormGroup;
   submitted = false;
 
@@ -29,7 +30,7 @@ export class AddTripComponent implements OnInit {
       perPerson: ["", Validators.required],
       image: ["", Validators.required],
       description: ["", Validators.required],
-    });
+    })
   }
 
   onSubmit() {
@@ -44,5 +45,6 @@ export class AddTripComponent implements OnInit {
   }
 
   // get the form short name to access the form fields
-  get f() { return this.addForm.controls; }
+  get f() {  return this.addForm.controls; }
+
 }
