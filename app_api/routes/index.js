@@ -11,6 +11,7 @@ router
 router
   .route("/trips/:tripCode")
   .get(tripsController.tripsFindCode)
+  .post(tripsController.tripsAddTrip)
   .put(tripsController.tripsUpdateTrip);
 
 
