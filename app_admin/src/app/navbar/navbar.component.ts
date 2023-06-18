@@ -7,23 +7,22 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-
 export class NavbarComponent implements OnInit {
 
   constructor(
-  private authenticationService: AuthenticationService,
-  private router: Router
-) { }
+    private authenticationService: AuthenticationService,
+    private router: Router
+  ) { }
 
-ngOnInit() { }
+  ngOnInit() { }
 
-public isLoggedIn(): boolean {
-  return this.authenticationService.isLoggedIn();
-}
+  public isLoggedIn(): boolean {
+    return this.authenticationService.isLoggedIn();
+  }
 
-private onLogout(): void {
-  this.authenticationService.logout();
-  this.router.navigateByUrl('#');
-  return;
-}
+  private onLogout(): void {
+    this.authenticationService.logout();
+    this.router.navigateByUrl('#');
+    return;
+  }
 }

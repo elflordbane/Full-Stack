@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { AuthenticationService } from '../services/authentication';
 
 @Component({
@@ -19,4 +18,5 @@ export class HomeComponent implements OnInit {
   public isLoggedIn(): boolean {
     return this.authService.isLoggedIn();
   }
+
 }

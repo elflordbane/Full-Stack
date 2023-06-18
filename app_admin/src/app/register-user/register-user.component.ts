@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication';
-import { User } from '../models/user';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-register-user',
+  templateUrl: './register-user.component.html',
+  styleUrls: ['./register-user.component.css']
 })
-export class LoginComponent implements OnInit {
+export class RegisterUserComponent implements OnInit {
 
   public formError: string = '';
   
@@ -23,19 +22,19 @@ export class LoginComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  public onLoginSubmit(): void {
+  public onRegisterSubmit(): void {
     this.formError = '';
-    if (!this.credentials.email || !this.credentials.password) {
+    if (!this.credentials.name || this.credentials.email || !this.credentials.password) {
     this.formError = 'All fields are required, please try again';
     } else {
-      this.doLogin();
+      this.doRegister();
     }
   }
 
-  private doLogin(): void {
-    this.authenticationService.login(this.credentials)
+  private doRegister(): void {
+    this.authenticationService.register(this.credentials)
       .then(() => this.router.navigateByUrl('#'))
       .catch((message) => this.formError = message);
   }
