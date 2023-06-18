@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const ctrlTravel = require('../controllers/travel');
+const ctrlAbout = require('../controllers/about');
 
-router.get('/', ctrlTravel.travelList);
+router.get('/', ctrlAbout.about);
 
 module.exports = router;
